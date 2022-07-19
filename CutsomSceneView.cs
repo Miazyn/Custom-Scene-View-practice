@@ -49,28 +49,21 @@ public class CutsomSceneView : Editor
                 {
                     // left mouse click
                     GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    
                     cube.transform.position = new Vector3(
                     Mathf.RoundToInt(targetPosX),
                     Mathf.RoundToInt(targetPosY),
                     Mathf.RoundToInt(targetPosZ));
 
                     Undo.RegisterCreatedObjectUndo(cube, "Place Cube");
+                    //ADD THIS LINE FOR RANDOM COLORS WARNING: cube.GetComponent<Renderer>().material.color = UnityEngine.Random.ColorHSV();
+                    // ADD THIS FOR CHANGING ALL CUBES COLOR AT RANDOM cube.GetComponent<Renderer>().sharedMaterial.color = UnityEngine.Random.ColorHSV();
                 }
             }
 
             sceneView.Repaint();
         }
     }
-
-    //private void SnapToGrid()
-    //{
-    //    var position = new Vector3(
-    //        Mathf.RoundToInt(this.transform.position.x),
-    //        Mathf.RoundToInt(this.transform.position.x),
-    //        Mathf.RoundToInt(this.transform.position.z));
-
-    //    this.transform.position = position;
-    //}
 }
 
 
